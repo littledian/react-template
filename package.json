@@ -6,7 +6,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "eslint": "eslint \"**/*.@(ts|tsx|js|jsx)\"",
+    "stylelint": "stylelint \"**/*.@(css|scss|sass)\""
   },
   "dependencies": {
     "react": "^16.8.6",
@@ -16,7 +18,16 @@
   "devDependencies": {
     "@types/react": "^16.8.22",
     "@types/react-dom": "^16.8.4",
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "@typescript-eslint/parser": "^1.11.0",
     "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^6.0.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.14.2",
+    "eslint-plugin-standard": "^4.0.0",
     "http-proxy-middleware": "^0.19.1",
     "lint-staged": "^8.2.1",
     "node-sass": "^4.12.0",
@@ -25,9 +36,6 @@
     "stylelint-config-standard": "^18.3.0",
     "stylelint-scss": "^3.8.0",
     "ts-node": "^8.3.0",
-    "tslint": "^5.18.0",
-    "tslint-config-standard": "^8.0.1",
-    "tslint-react": "^4.0.0",
     "typescript": "^3.5.2",
     "validate-commit-msg": "^2.14.0",
     "yorkie": "^2.0.0"
@@ -38,7 +46,7 @@
   },
   "lint-staged": {
     "**/**.{ts,tsx}": [
-      "tslint",
+      "eslint",
       "git add"
     ],
     "**/**.scss": [

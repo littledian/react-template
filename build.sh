@@ -8,9 +8,9 @@ tag="$prefix:$timestamp"
 docker build -t "$tag" .
 
 have=$(docker inspect --format='{{.Name}}' $(docker ps -aq) |grep tools  | cut -d"/" -f2)
-if [[ $have == "tools" ]]; then
-  docker container stop tools
-  docker container rm tools
+if [[ "$have" == "$containerName" ]]; then
+  docker container stop $containerName
+  docker container rm $containerName
 fi
 
 tags=$(docker images | grep $prefix | awk '{print $2}')

@@ -7,7 +7,7 @@ tag="$prefix:$timestamp"
 
 docker build -t "$tag" .
 
-have=$(docker inspect --format='{{.Name}}' $(docker ps -aq) |grep tools  | cut -d"/" -f2)
+have=$(docker inspect --format='{{.Name}}' $(docker ps -aq) |grep $containerName  | cut -d"/" -f2)
 if [[ "$have" == "$containerName" ]]; then
   docker container stop $containerName
   docker container rm $containerName
